@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/url_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_whitebackground"
+        android:hint="URL을 입력해주세요."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/showstring_button"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/showstring_babypinkbackground"
+        android:layout_marginTop="10dp"
+        android:text="@string/string_main_showstring"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/url_edit_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/openpage_button"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/openpage_pinkbackground"
+        android:layout_marginTop="10dp"
+        android:text="@string/string_main_openpage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showstring_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/qr_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/openpage_button"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/q_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_main_radiobutton_Q"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/openpage_button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <RadioButton
+            android:id="@+id/r_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_main_radiobutton_R"
+            android:checked="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/q_radio_button"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </RadioGroup>
+
+
+    <ImageView
+        android:id="@+id/radioimg_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/r"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/qr_radio_group"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
