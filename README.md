@@ -1,6 +1,7 @@
 # HW1_2_20180800
 > 안드로이드 스튜디오(자바 활용) 공부 - 스마트 모바일 프로그래밍 과제 1
 > 참고 : https://nonameunknown.tistory.com/m/5(버튼 색 변경 관련)
+> 참고 : https://developer.android.com/guide/topics/ui/notifiers/toasts(toast 메세지 관련)
 
 ### 앱 실행 화면
 <img width="404" alt="실행화면 캡쳐" src="https://user-images.githubusercontent.com/68562176/112725832-84f03f80-8f5d-11eb-867b-5d6999c529a9.png">
@@ -14,9 +15,10 @@
 1. id 값 가져오기 (findViewById 메소드 / 위젯의 변수명 = (위젯명) findViewById(R.id.가져 올 위젯의 아이디);)
 2. 안드로이드 프로젝트의 구조
 3. input에서 입력받은 값을 저장하여 사용하는 방법
-4. url로 액티비티 실행하는 방법
-5. 라디오 그룹과 라디오 버튼의 사용법
-6. 버튼 색 변경(background)
+5. url로 액티비티 실행하는 방법
+6. 라디오 그룹과 라디오 버튼의 사용법
+7. 버튼 색 변경(background)
+8. 토스트 메시지 띄우기
 
 -----
 #### 안드로이드 프로젝트의 구조
@@ -39,3 +41,21 @@ res 폴더 안에 있는 패키지이다. res폴더는 resource 폴더로 ui관�
   1) app -> res -> values -> themes.xml에 들어감
   2) 3번째 줄에 ```<style name="Theme.Midterm12_20180800" parent="Theme.MaterialComponents.DayNight.DarkActionBar">```       이 부분에서 parent안에 내용을 Theme.AppCompat.Light로 바꿈 
 * 변경 후 : ```<style name="Theme.Midterm12_20180800" parent="Theme.AppCompat.Light">```
+
+#### 토스트 메시지 띄우기
+* 방법 :
+  1) makeText() 메소드를 이용하여 객체 생성
+  2) show() 메소드를 이용하여 화면에 띄우기
+* 코드 : 
+```
+Toast toast = Toast.makeText(context, text, duration);
+toast.show();
+```
+아래와 같이 객체 생성과 동시에 보여줄 수도 있음
+```
+toast = Toast.makeText(context, text, duration).show();
+```
+* 객체 생성 파라미터 : 객체를 생성할 때는 context, text, duration 파라미터를 전달해주어야한다.
+  1) context : getApplicationContext() 메소드를 이용해 context를 가져온다.
+  2) text : 토스트로 띄우고 싶은 메세지 내용
+  3) duration : 토스트 메세지를 얼마나 길게 보여줄 지 결정한다. 값은 ```Toast.LENGTH_LONG```또는```Toast.LENGTH_SHORT``` 중 원하는 것을 사용하면 된다.
