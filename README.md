@@ -1,5 +1,6 @@
 # HW1_2_20180800
-안드로이드 스튜디오(자바 활용) 공부 - 스마트 모바일 프로그래밍 과제 1
+> 안드로이드 스튜디오(자바 활용) 공부 - 스마트 모바일 프로그래밍 과제 1
+> 참고 : https://nonameunknown.tistory.com/m/5(버튼 색 변경 관련)
 
 ### 앱 실행 화면
 <img width="404" alt="실행화면 캡쳐" src="https://user-images.githubusercontent.com/68562176/112725832-84f03f80-8f5d-11eb-867b-5d6999c529a9.png">
@@ -15,6 +16,7 @@
 3. input에서 입력받은 값을 저장하여 사용하는 방법
 4. url로 액티비티 실행하는 방법
 5. 라디오 그룹과 라디오 버튼의 사용법
+6. 버튼 색 변경(background)
 
 -----
 #### 안드로이드 프로젝트의 구조
@@ -28,3 +30,12 @@ activity_mail.xml과 쌍을 이루어 존재하며, activity파일에서 setCont
 문자열값들을 저장해놓은 파일이다. xml파일에서 @string/리소스 형식으로 값을 불러올 수 있다. xml text에서 값을 바로 써도 되지만 문자열 값을 모아두면 수정이 더 간편해져 관리하기에 편하다.
 5. drawable 폴더     
 res 폴더 안에 있는 패키지이다. res폴더는 resource 폴더로 ui관련 파일, 디자인 리소스, 문자열 리소 스를 담고 있다. 그 중에서 drawable 패키지는 이미지 파일들을 담고 있다. 앱에 사용될 이미지들을 이 폴더에 담아두고 xml에서 불러서 사용한다.
+
+#### 버튼 색 변경
+버튼 색상이 바뀌지 않고 커스텀버튼 또한 적용이 되지 않는 문제가 발생. 계속 보라색으로 나오고 원하는 색으로 바뀌지 않음.     
+* 원인 : 앱의 테마가 Theme.MaterialComponents를 default로 사용하면서 발생됨
+* 해결방법 : 앱의 테마를 Theme.AppCompat.Light로 변경
+* 테마 변경 방법 : 
+  1) app -> res -> values -> themes.xml에 들어감
+  2) 3번째 줄에 ```<style name="Theme.Midterm12_20180800" parent="Theme.MaterialComponents.DayNight.DarkActionBar">```       이 부분에서 parent안에 내용을 Theme.AppCompat.Light로 바꿈 
+* 변경 후 : ```<style name="Theme.Midterm12_20180800" parent="Theme.AppCompat.Light">```
